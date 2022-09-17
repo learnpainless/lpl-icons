@@ -1,0 +1,87 @@
+---
+home: true
+bodyClasses: page-home
+destination: /index.html
+generatorGroups:
+- items:
+  - url: icons-launcher.html
+    image: res/generator-thumbs/icons-launcher.svg
+    title: Launcher icon generator
+    description: Generate launcher and store listing icons for your app.
+
+  - url: icons-app-shortcut.html
+    image: res/generator-thumbs/icons-app-shortcut.svg
+    title: App shortcut icon generator
+    description: Generate app launcher shortcut icons (Android 7.1+).
+
+  - url: icons-notification.html
+    image: res/generator-thumbs/icons-notification.svg
+    title: Notification icon generator
+    description:
+      Generate notification icons for your app. These show up
+      in the system status bar and notification shade.
+
+  - url: nine-patches.html
+    image: res/generator-thumbs/nine-patches.svg
+    title: Simple nine-patch generator
+    description:
+      Generate nine-patch (.9.png) assets for your app, normally
+      used for custom UI widgets.
+
+  - url: icons-generic.html
+    image: res/generator-thumbs/icons-generic.svg
+    title: Generic icon generator
+    description:
+      Generate square icons for custom use within your app.
+
+  - url: icons-actionbar.html
+    image: res/generator-thumbs/icons-actionbar.svg
+    title: Action bar/tab icon generator
+    description: Generate icons for the app bar or tab bars.
+
+---
+{% extends '_base.html' %}
+
+{% block head %}
+<meta name="description" content="Generate a free custom icon for your android app in minutes. Simply choose from the icon collections, upload your own image, or browse our icons and click to download.">
+<meta name="keywords" content="mobile app icon,material icon,home icon,cool icons,icon set,android icon,android app icon,android icon packs,android notification icons,android status bar icons,app icon,app icon maker,create icon,free icons for android,google icon,icon generator,icon pack,icons for android,make icon,phone icons for android" />
+{% endblock %}
+
+{% block body %}
+<p class="invisible">android icon generator,android generate icons,icon generator for android,android app icon generator,android launcher icon generator,android notification icon generator</p>
+<div class="home-header">
+  <div class="inner">
+    <h1>Android Icon Generator</h1>
+    <p class="subtitle">
+      A collection of tools to easily generate assets such as launcher icons for your Android app.
+    </p>
+    <p class="subtitle">
+      mobile app icon generators allow you to quickly and easily generate icons from existing source images, clipart, or text.
+    </p>
+  </div>
+</div>
+{% for group in generatorGroups %}
+<div class="home-generator-list">
+  <div class="inner">
+    {% if group.title %}<h2>{{ group.title }}</h2>{% endif %}
+    {% for generator in group.items %}
+    <a href="{{ generator.url }}"
+       class="home-generator-card{% if generator.extraClasses %} {{ generator.extraClasses }}{% endif %}">
+      <div class="generator-image">
+        {% include generator.image %}
+      </div>
+      <div class="generator-title">{{ generator.title }}</div>
+      <div class="generator-description">{{ generator.description }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+<p class="invisible">android icon generator,android generate icons,icon generator for android,android app icon generator,android launcher icon generator,android notification icon generator</p>
+<div class="home-footer">
+  <div class="inner">
+    Created by <a href="https://twitter.com/romannurik">Roman Nurik</a>.
+  </div>
+</div>
+
+{% endblock %}
